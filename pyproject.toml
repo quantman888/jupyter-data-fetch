@@ -1,0 +1,11 @@
+[project]
+name = "jupyter-data-fetch"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    'jupyter_kernel_client',
+    'pandas<3.0',
+    'pillow', # PickleImageCodecc才需要
+]
