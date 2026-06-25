@@ -1,6 +1,6 @@
 # jupyter-data-fetch
 
-从`jupyterlab`、`jupyter notebook`中抓取数据的示例。由于代码实在过于简单，所以并未打包发布
+从`jupyterlab`、`jupyter notebook`中抓取数据的示例。**代码就一个文件，过于简单，故未打包发布**
 
 ## 优点
 
