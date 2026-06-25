@@ -22,11 +22,11 @@ from http.cookies import SimpleCookie
 
 from jupyter_kernel_client import KernelClient
 
-Cookie = 'user-26702897463=2|1:0|10:1782347474|16:user-26702897463|48:MDljZjM0NTYtYWMyOS00MTJhLWIxZDItNjJmZmFhNGQ3Mzkz|858778c0b00b7a1fa5a07330e0197e2961ce2224f947b23dc73382983f3b03a0; uid=wKiXm2o8DlhXTgWbgjO+Ag==; _xsrf=2|0164e5f2|038f6ab01e86f30cd8149a199a40e6ae|1782321118; token=7d6a38a8531680694fad56ec4cf04bbf62ffdb19; PHPSESSID=o90iesn2g9thepf989s3nlhit5'
+Cookie = 'user-12345678901=2|1:0|10:1782347474|16:user-12345678901|48:MDljZjM0NTYtYWMyOS00MTJhLWIxZDItNjJmZmFhNGQ3Mzkz|858778c0b00b7a1fa5a07330e0197e2961ce2224f947b23dc73382983f3b03a0; uid=wKiXm2o8DlhXTgWbgjO+Ag==; _xsrf=2|0164e5f2|038f6ab01e86f30cd8149a199a40e6ae|1782321118; token=7d6a38a8531680694fad56ec4cf04bbf62ffdb19; PHPSESSID=o90iesn2g9thepf989s3nlhit5'
 
 headers = {'Cookie': Cookie, 'X-XSRFToken': SimpleCookie(Cookie)['_xsrf'].value}
 
-with KernelClient(server_url="https://www.joinquant.com/user/26702897463", token=None, headers=headers) as kernel:
+with KernelClient(server_url="https://www.joinquant.com/user/12345678901", token=None, headers=headers) as kernel:
     from jupyter_date_fetch.codec import LazyKernel
 
     LazyKernel.set_kernel(kernel)
