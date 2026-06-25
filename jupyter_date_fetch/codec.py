@@ -52,8 +52,8 @@ print(serialized, end='')
     @staticmethod
     def extract_from_reply(reply):
         if reply['status'] == 'error':
-            print('\n'.join(reply['outputs'][0]['traceback']))
-            return ''
+            error_msg = '\n'.join(reply['outputs'][0]['traceback'])
+            raise RuntimeError(f"Jupyter execution error:\n{error_msg}")
         else:
             return reply['outputs'][0]['text']
 
@@ -63,8 +63,8 @@ print(serialized, end='')
 
     @staticmethod
     def extract_decode(reply):
-        b64_string = JupyterBase85Codec.extract_from_reply(reply)
-        return JupyterBase85Codec.decode(b64_string) if b64_string else None
+        b85_string = JupyterBase85Codec.extract_from_reply(reply)
+        return JupyterBase85Codec.decode(b85_string)  # if b85_string else None
 
 
 class JupyterImageCodec:
@@ -104,8 +104,8 @@ img
     @staticmethod
     def extract_from_reply(reply):
         if reply['status'] == 'error':
-            print('\n'.join(reply['outputs'][0]['traceback']))
-            return ''
+            error_msg = '\n'.join(reply['outputs'][0]['traceback'])
+            raise RuntimeError(f"Jupyter execution error:\n{error_msg}")
         else:
             return reply['outputs'][0]['data']['image/png']
 
@@ -120,4 +120,4 @@ img
     @staticmethod
     def extract_decode(reply):
         b64_string = JupyterImageCodec.extract_from_reply(reply)
-        return JupyterImageCodec.decode(b64_string) if b64_string else None
+        return JupyterImageCodec.decode(b64_string)  # if b64_string else None
